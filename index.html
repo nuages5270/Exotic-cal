@@ -1,0 +1,908 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Exotic ER Calc</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header>
+
+        <h1>
+            🩺 Exotic ER Calc
+        </h1>
+
+        <p>
+            Exotic Emergency Calculator
+        </p>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         PATIENT
+         ===================================================== -->
+
+    <section class="patient-card">
+
+        <h2>
+            Patient
+        </h2>
+
+
+        <label>
+            Species
+        </label>
+
+
+        <div class="species-buttons">
+
+            <button
+                class="species-btn"
+                data-species="avian"
+            >
+                🐦 Avian
+            </button>
+
+
+            <button
+                class="species-btn"
+                data-species="rabbit"
+            >
+                🐰 Rabbit
+            </button>
+
+             <button
+                class="species-btn"
+                data-species="guineapig"
+            >
+                🐹 Guinea pig
+            </button>
+
+            <button
+                class="species-btn"
+                data-species="rodent"
+            >
+                🐹 Rodent
+            </button>
+
+        </div>
+
+
+
+        <label for="weight">
+            Body Weight
+        </label>
+
+
+        <div class="weight-input">
+
+            <input
+                type="number"
+                id="weight"
+                placeholder="85"
+                min="0"
+                step="0.1"
+            >
+
+
+            <select id="unit">
+
+                <option value="g">
+                    g
+                </option>
+
+                <option value="kg">
+                    kg
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <p id="patient-summary">
+            🐦 Avian · 85 g
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         DOSE LOOKUP
+         Full reference:
+         All species / All routes / Dose / Frequency / Notes
+         ===================================================== -->
+
+    <section class="card" id="dose-lookup">
+
+        <div class="card-header dose-lookup-header">
+
+            <h2>
+                🔎 Dose Lookup
+            </h2>
+
+            <button
+                type="button"
+                id="dose-lookup-toggle"
+                class="dose-lookup-toggle"
+                aria-label="Toggle Dose Lookup"
+            >
+                −
+            </button>
+
+        </div>
+
+
+        <div
+            id="dose-lookup-content"
+            class="dose-lookup-content"
+        >
+
+            <!-- Recent 3 -->
+
+            <div
+                id="dose-lookup-recent"
+                class="dose-lookup-recent"
+            >
+
+                <div class="dose-lookup-recent-title">
+                    Recent
+                </div>
+
+                <div
+                    id="dose-lookup-recent-list"
+                    class="dose-lookup-recent-list"
+                ></div>
+
+            </div>
+
+
+            <!-- Search -->
+
+            <div class="dose-lookup-search">
+
+                <input
+                    type="text"
+                    id="dose-lookup-search"
+                    placeholder="Type drug name..."
+                    autocomplete="off"
+                >
+
+
+                <div
+                    id="dose-lookup-results"
+                    class="dose-lookup-results"
+                ></div>
+
+            </div>
+
+
+            <!-- Result -->
+
+            <div
+                id="dose-lookup-result"
+                class="dose-lookup-result"
+            >
+
+                <p>
+                    Select a drug...
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CALCULATOR TABS
+         ===================================================== -->
+
+    <div class="calculator-tabs">
+
+        <button
+            class="calculator-tab active"
+            data-calculator="drug"
+        >
+            💊 Drug Calculator
+        </button>
+
+
+        <button
+            class="calculator-tab"
+            data-calculator="syrup"
+        >
+            🧪 Syrup Calculator
+        </button>
+
+
+        <button
+            class="calculator-tab"
+            data-calculator="cri"
+        >
+            💉 CRI Calculator
+        </button>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         DRUG CALCULATOR
+         ===================================================== -->
+
+    <section
+        class="calculator calculator-page"
+        id="drug-calculator"
+    >
+
+        <h2>
+            💊 Drug Calculator
+        </h2>
+
+
+        <!-- =================================================
+             DRUG DOSE LOOKUP
+             Drug Calculator:
+             IM / SC / IV only
+             + Use this dose
+             ================================================= -->
+
+        <div class="drug-dose-reference">
+
+            <h3>
+                💊 Drug Dose
+            </h3>
+
+
+            <input
+                type="text"
+                id="drug-search"
+                placeholder="Type drug name..."
+                autocomplete="off"
+            >
+
+
+            <div
+                id="drug-search-results"
+                class="drug-search-results"
+            ></div>
+
+
+            <div id="dose-result">
+
+                Select a drug...
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             DRUG CALCULATION
+             ================================================= -->
+
+        <label for="dose">
+            Dose (mg/kg)
+        </label>
+
+
+        <input
+            type="number"
+            id="dose"
+            placeholder="例如 5"
+            min="0"
+            step="0.01"
+        >
+
+
+        <label for="concentration">
+            Drug Concentration (mg/mL)
+        </label>
+
+
+        <input
+            type="number"
+            id="concentration"
+            placeholder="例如 10"
+            min="0"
+            step="0.01"
+        >
+
+
+        <div class="calculator-buttons">
+
+            <button id="calculate">
+                Calculate
+            </button>
+
+
+            <button id="clear">
+                Clear
+            </button>
+
+        </div>
+
+
+        <div class="result">
+
+            <p>
+                Total Dose
+            </p>
+
+
+            <strong id="total-dose">
+                — mg
+            </strong>
+
+
+            <p>
+                Volume to Administer
+            </p>
+
+
+            <strong id="result">
+                — mL
+            </strong>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SYRUP CALCULATOR
+         ===================================================== -->
+
+    <section
+        class="compounding calculator-page"
+        id="syrup-calculator"
+        hidden
+    >
+
+        <h2>
+            🧪 Syrup Calculator
+        </h2>
+
+
+        <!-- Patient Summary -->
+
+        <div class="calculator-patient-summary">
+
+            <span>
+                Patient
+            </span>
+
+            <strong id="syrup-patient-summary">
+                🐦 Avian · 85 g
+            </strong>
+
+        </div>
+
+
+
+        <!-- =================================================
+     PREPARATION
+     ================================================= -->
+
+        <div class="compound-group">
+
+            <h3>
+                Preparation
+            </h3>
+
+            <div class="preparation-row">
+
+                <div class="preparation-field">
+
+                    <label for="dose-volume">
+                        Volume per dose
+                    </label>
+
+                    <div class="input-with-unit">
+
+                        <input
+                            type="number"
+                            id="dose-volume"
+                            placeholder="0.2"
+                            min="0"
+                            step="0.01"
+                        >
+
+                        <span>
+                            mL / dose
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="preparation-field">
+
+                    <label for="final-volume">
+                        Final syrup volume
+                    </label>
+
+                    <div class="input-with-unit">
+
+                        <input
+                            type="number"
+                            id="final-volume"
+                            placeholder="10"
+                            min="0"
+                            step="0.1"
+                        >
+
+                        <span>
+                            mL
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+       <!-- =================================================
+     TREATMENT
+     ================================================= -->
+
+        <div class="compound-group">
+
+            <h3>
+                Treatment
+            </h3>
+
+            <div class="treatment-row">
+
+                <div class="treatment-field">
+
+                    <label for="frequency">
+                        Frequency
+                    </label>
+
+                    <select id="frequency">
+
+                        <option value="1">
+                            SID
+                        </option>
+
+                        <option value="2">
+                            BID
+                        </option>
+
+                        <option value="3">
+                            TID
+                        </option>
+
+                        <option value="4">
+                            QID
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="treatment-field">
+
+                    <label for="duration">
+                        Duration
+                    </label>
+
+                    <div class="input-with-unit">
+
+                        <input
+                            type="number"
+                            id="duration"
+                            placeholder="7"
+                            min="1"
+                            step="1"
+                        >
+
+                        <span>
+                            days
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             DRUG
+             Syrup:
+             PO only
+             ================================================= -->
+
+        <div class="compound-group compound-drug-group">
+
+            <h3>
+                Drug #1
+            </h3>
+
+
+            <div class="compound-drug-input">
+
+                <input
+                    type="text"
+                    id="compound-drug"
+                    placeholder="Type drug name..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <label for="target-dose">
+                Target dose
+            </label>
+
+
+            <div class="input-with-unit">
+
+                <input
+                    type="number"
+                    id="target-dose"
+                    placeholder="25"
+                    min="0"
+                    step="0.01"
+                >
+
+                <span>
+                    mg/kg/dose
+                </span>
+
+            </div>
+
+
+
+            <label for="formulation">
+                Formulation
+            </label>
+
+
+            <select id="formulation">
+
+                <option value="tablet">
+                    Tablet
+                </option>
+
+                <option value="capsule">
+                    Capsule
+                </option>
+
+                <option value="liquid">
+                    Liquid
+                </option>
+
+            </select>
+
+
+
+            <label for="strength">
+                Strength
+            </label>
+
+
+            <div class="input-with-unit">
+
+                <input
+                    type="number"
+                    id="strength"
+                    placeholder="250"
+                    min="0"
+                    step="0.01"
+                >
+
+                <span id="strength-unit">
+                    mg/tablet
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CALCULATE
+             ================================================= -->
+
+        <div class="calculator-buttons">
+
+            <button id="calculate-compound">
+                Calculate
+            </button>
+
+
+            <button id="clear-compound">
+                Clear
+            </button>
+
+        </div>
+
+
+
+        <!-- Result -->
+
+        <div
+            id="compound-result"
+            class="compound-result"
+        >
+
+            <p>
+                Enter the required information to calculate.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CRI CALCULATOR
+         ===================================================== -->
+
+    <section
+        class="compounding calculator-page"
+        id="cri-calculator"
+        hidden
+    >
+
+        <h2>
+            💉 CRI Calculator
+        </h2>
+
+
+        <!-- Patient Summary -->
+
+        <div class="calculator-patient-summary">
+
+            <span>
+                Patient
+            </span>
+
+            <strong id="cri-patient-summary">
+                🐦 Avian · 85 g
+            </strong>
+
+        </div>
+
+
+
+        <!-- =================================================
+             DOSE
+             ================================================= -->
+
+        <div class="compound-group">
+
+            <h3>
+                Dose
+            </h3>
+
+
+            <label for="cri-dose">
+                Target Dose
+            </label>
+
+
+            <div class="input-with-unit">
+
+                <input
+                    type="number"
+                    id="cri-dose"
+                    placeholder="3"
+                    min="0"
+                    step="0.001"
+                >
+
+
+                <select id="cri-dose-unit">
+
+                    <option value="mg/kg/hr">
+                        mg/kg/hr
+                    </option>
+
+                    <option value="mg/kg/min">
+                        mg/kg/min
+                    </option>
+
+                    <option value="ug/kg/hr">
+                        µg/kg/hr
+                    </option>
+
+                    <option value="ug/kg/min">
+                        µg/kg/min
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             INFUSION
+             ================================================= -->
+
+        <div class="compound-group">
+
+            <h3>
+                Infusion
+            </h3>
+
+
+            <label for="cri-infusion-rate">
+                Infusion Rate
+            </label>
+
+
+            <div class="input-with-unit">
+
+                <input
+                    type="number"
+                    id="cri-infusion-rate"
+                    placeholder="1"
+                    min="0"
+                    step="0.01"
+                >
+
+                <span>
+                    mL/hr
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PREPARATION
+             ================================================= -->
+
+        <div class="compound-group">
+
+            <h3>
+                Preparation
+            </h3>
+
+
+            <label for="cri-drug-amount">
+                Stock Concentration
+            </label>
+
+
+            <div class="input-with-unit">
+
+                <input
+                    type="number"
+                    id="cri-drug-amount"
+                    placeholder="40"
+                    min="0"
+                    step="0.01"
+                >
+
+                <span>
+                    mg/mL
+                </span>
+
+            </div>
+
+
+            <label for="cri-final-volume">
+                Final Volume
+            </label>
+
+
+            <div class="input-with-unit">
+
+                <input
+                    type="number"
+                    id="cri-final-volume"
+                    placeholder="24"
+                    min="0"
+                    step="0.1"
+                >
+
+                <span>
+                    mL
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CALCULATE
+             ================================================= -->
+
+        <div class="calculator-buttons">
+
+            <button id="calculate-cri">
+                Calculate
+            </button>
+
+
+            <button id="clear-cri">
+                Clear
+            </button>
+
+        </div>
+
+
+
+        <!-- Result -->
+
+        <div
+            id="cri-result"
+            class="compound-result"
+        >
+
+            <p>
+                Enter the required information to calculate.
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<script src="data/drugs.js"></script>
+
+<script src="app.js"></script>
+
+
+</body>
+
+</html>
