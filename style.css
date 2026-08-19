@@ -392,14 +392,18 @@ label {
 
 }
 .treatment-row,
-.preparation-row {
+.preparation-row,
+.calculator-row,
+.drug-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
 
 .treatment-field,
-.preparation-field {
+.preparation-field,
+.calculator-field,
+.drug-field {
     min-width: 0;
 }
 
@@ -428,13 +432,17 @@ label {
     min-width: 0;
 }
 
+.input-with-unit select {
+    flex: 0 0 105px;
+    width: 105px;
+}
+
 .input-with-unit span {
     flex: 0 0 auto;
     min-width: auto;
     color: #607d8b;
     font-size: 13px;
 }
-
 
 #calculate-compound {
 

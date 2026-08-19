@@ -311,35 +311,36 @@
         <!-- =================================================
              DRUG CALCULATION
              ================================================= -->
+        <div class="calculator-row">
+            <div class="calculator-field">
 
-        <label for="dose">
-            Dose (mg/kg)
-        </label>
+            <label for="dose">
+            Dose
+            </label>
+                <input
+                type="number"
+                id="dose"
+                placeholder="mg/kg"
+                min="0"
+                step="0.01"
+                >
+            </div>
 
+            <div class="calculator-field">
 
-        <input
-            type="number"
-            id="dose"
-            placeholder="例如 5"
-            min="0"
-            step="0.01"
-        >
-
-
-        <label for="concentration">
-            Drug Concentration (mg/mL)
-        </label>
-
-
-        <input
-            type="number"
-            id="concentration"
-            placeholder="例如 10"
-            min="0"
-            step="0.01"
-        >
-
-
+                <label for="concentration">
+                    Drug Concentration
+                </label>
+                <input
+                    type="number"
+                    id="concentration"
+                    placeholder="mg/mL"
+                    min="0"
+                    step="0.01"
+                >
+            </div>
+        </div>
+        
         <div class="calculator-buttons">
 
             <button id="calculate">
@@ -556,10 +557,29 @@
 
         <div class="compound-group compound-drug-group">
 
-            <h3>
-                Drug #1
-            </h3>
+    <div class="compound-drug-header">
 
+        <h3>
+            Drug #1
+        </h3>
+
+        <button
+            type="button"
+            class="remove-compound-drug"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <div class="drug-row">
+
+        <div class="drug-field">
+
+            <label for="compound-drug">
+                Drug
+            </label>
 
             <div class="compound-drug-input">
 
@@ -572,11 +592,14 @@
 
             </div>
 
+        </div>
+
+
+        <div class="drug-field">
 
             <label for="target-dose">
                 Target dose
             </label>
-
 
             <div class="input-with-unit">
 
@@ -594,12 +617,18 @@
 
             </div>
 
+        </div>
 
+    </div>
+
+
+    <div class="drug-row">
+
+        <div class="drug-field">
 
             <label for="formulation">
                 Formulation
             </label>
-
 
             <select id="formulation">
 
@@ -617,12 +646,14 @@
 
             </select>
 
+        </div>
 
+
+        <div class="drug-field">
 
             <label for="strength">
                 Strength
             </label>
-
 
             <div class="input-with-unit">
 
@@ -642,7 +673,9 @@
 
         </div>
 
+    </div>
 
+</div>
 
         <!-- =================================================
              CALCULATE
@@ -810,53 +843,60 @@
                 Preparation
             </h3>
 
+            <div class="preparation-row">
 
-            <label for="cri-drug-amount">
-                Stock Concentration
-            </label>
+                <div class="preparation-field">
+
+                    <label for="cri-drug-amount">
+                        Stock Concentration
+                    </label>
+
+                    <div class="input-with-unit">
+
+                        <input
+                            type="number"
+                            id="cri-drug-amount"
+                            placeholder="40"
+                            min="0"
+                            step="0.01"
+                        >
+
+                        <span>
+                            mg / mL
+                        </span>
+
+                    </div>
+
+                </div>
 
 
-            <div class="input-with-unit">
+                <div class="preparation-field">
 
-                <input
-                    type="number"
-                    id="cri-drug-amount"
-                    placeholder="40"
-                    min="0"
-                    step="0.01"
-                >
+                    <label for="cri-final-volume">
+                        Final Volume
+                    </label>
 
-                <span>
-                    mg/mL
-                </span>
+                    <div class="input-with-unit">
 
-            </div>
+                        <input
+                            type="number"
+                            id="cri-final-volume"
+                            placeholder="24"
+                            min="0"
+                            step="0.1"
+                        >
 
+                        <span>
+                            mL
+                        </span>
 
-            <label for="cri-final-volume">
-                Final Volume
-            </label>
+                    </div>
 
-
-            <div class="input-with-unit">
-
-                <input
-                    type="number"
-                    id="cri-final-volume"
-                    placeholder="24"
-                    min="0"
-                    step="0.1"
-                >
-
-                <span>
-                    mL
-                </span>
+                </div>
 
             </div>
 
         </div>
-
-
 
         <!-- =================================================
              CALCULATE

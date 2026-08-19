@@ -2458,99 +2458,123 @@ function addCompoundDrug() {
 
     group.innerHTML = `
 
-        <div class="compound-drug-header">
+    <div class="compound-drug-header">
 
-            <h3>
-                Drug #${compoundDrugCount}
-            </h3>
+        <h3>
+            Drug #${compoundDrugCount}
+        </h3>
 
-            <button
-                type="button"
-                class="remove-compound-drug"
-            >
-                ✕
-            </button>
-
-        </div>
-
-
-        <label>
-            Drug
-        </label>
-
-        <input
-            type="text"
-            class="compound-drug-input"
-            placeholder="Type drug name..."
-            autocomplete="off"
+        <button
+            type="button"
+            class="remove-compound-drug"
         >
+            ✕
+        </button>
+
+    </div>
 
 
-        <label>
-            Target dose
-        </label>
+    <div class="drug-row">
 
-        <div class="input-with-unit">
+        <div class="drug-field">
+
+            <label>
+                Drug
+            </label>
 
             <input
-                type="number"
-                class="compound-target-dose"
-                placeholder="25"
-                min="0"
-                step="0.01"
+                type="text"
+                class="compound-drug-input"
+                placeholder="Type drug name..."
+                autocomplete="off"
             >
-
-            <span>
-                mg/kg/dose
-            </span>
 
         </div>
 
 
-        <label>
-            Formulation
-        </label>
+        <div class="drug-field">
 
-        <select
-            class="compound-formulation"
-        >
+            <label>
+                Target dose
+            </label>
 
-            <option value="tablet">
-                Tablet
-            </option>
+            <div class="input-with-unit">
 
-            <option value="capsule">
-                Capsule
-            </option>
+                <input
+                    type="number"
+                    class="compound-target-dose"
+                    placeholder="25"
+                    min="0"
+                    step="0.01"
+                >
 
-            <option value="liquid">
-                Liquid
-            </option>
+                <span>
+                    mg/kg/dose
+                </span>
 
-        </select>
-
-
-        <label>
-            Strength
-        </label>
-
-        <div class="input-with-unit">
-
-            <input
-                type="number"
-                class="compound-strength"
-                placeholder="250"
-                min="0"
-                step="0.01"
-            >
-
-            <span class="compound-strength-unit">
-                mg/tablet
-            </span>
+            </div>
 
         </div>
 
-    `;
+    </div>
+
+
+    <div class="drug-row">
+
+        <div class="drug-field">
+
+            <label>
+                Formulation
+            </label>
+
+            <select
+                class="compound-formulation"
+            >
+
+                <option value="tablet">
+                    Tablet
+                </option>
+
+                <option value="capsule">
+                    Capsule
+                </option>
+
+                <option value="liquid">
+                    Liquid
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="drug-field">
+
+            <label>
+                Strength
+            </label>
+
+            <div class="input-with-unit">
+
+                <input
+                    type="number"
+                    class="compound-strength"
+                    placeholder="250"
+                    min="0"
+                    step="0.01"
+                >
+
+                <span class="compound-strength-unit">
+                    mg/tablet
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+`;
 
 
     const removeButton =
