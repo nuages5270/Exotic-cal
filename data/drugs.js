@@ -11,13 +11,19 @@ const drugDatabase = {
                             "max": 15,
                             "unit": "mg/kg"
                         }
-                    },
+                    }
+                }
+            },
+            "rabbit": {
+                "routes": {
                     "NB": {
                         "dose": {
                             "min": null,
-                            "max": null,
-                            "unit": "mg/kg"
-                        }
+                            "max": 50,
+                            "unit": "mg"
+                        },
+                        "frequency": "BID-QID",
+                        "note": "調製為2%噴霧溶液"
                     }
                 }
             }
@@ -29,10 +35,10 @@ const drugDatabase = {
         "species": {
             "avian": {
                 "routes": {
-                    "IM": {
+                    "IM, IV": {
                         "dose": {
-                            "min": 15,
-                            "max": 15,
+                            "min": 10,
+                            "max": 20,
                             "unit": "mg/kg"
                         }
                     }
@@ -48,15 +54,24 @@ const drugDatabase = {
                         },
                         "frequency": "BID-TID",
                         "note": "腎功能"
-                    },
-                    "IM": {
+                    }
+                }
+            }
+        }
+    },
+    "acepromazine": {
+        "name": "Acepromazine",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "IM, SC": {
                         "dose": {
-                            "min": 2,
-                            "max": 5,
+                            "min": 0.5,
+                            "max": 1,
                             "unit": "mg/kg"
                         },
-                        "frequency": "BID-TID",
-                        "note": "腎功能"
+                        "note": "鎮靜"
                     }
                 }
             }
@@ -72,6 +87,31 @@ const drugDatabase = {
                         "dose": {
                             "min": null,
                             "max": null,
+                            "unit": "mg/kg"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "ampicillin sodium": {
+        "name": "Ampicillin",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "IM": {
+                        "dose": {
+                            "min": 50,
+                            "max": 100,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "Q6-4H"
+                    },
+                    "PO": {
+                        "dose": {
+                            "min": 150,
+                            "max": 200,
                             "unit": "mg/kg"
                         }
                     }
@@ -128,7 +168,8 @@ const drugDatabase = {
                             "min": 40,
                             "max": 50,
                             "unit": "mg/kg"
-                        }
+                        },
+                        "note": "可混合 lactulose 冷藏3-4周"
                     }
                 }
             },
@@ -176,6 +217,18 @@ const drugDatabase = {
                             "max": 1,
                             "unit": "mg/kg"
                         }
+                    }
+                }
+            },
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 0.3,
+                            "max": 0.3,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "SID"
                     }
                 }
             }
@@ -242,13 +295,30 @@ const drugDatabase = {
             }
         }
     },
+    "cefadroxil": {
+        "name": "Cefadroxil",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 100,
+                            "max": 100,
+                            "unit": ""
+                        }
+                    }
+                }
+            }
+        }
+    },
     "cefazolin": {
         "name": "Cefazolin",
         "aliases": [],
         "species": {
             "avian": {
                 "routes": {
-                    "IM": {
+                    "IM, IV": {
                         "dose": {
                             "min": 25,
                             "max": 50,
@@ -284,8 +354,8 @@ const drugDatabase = {
                 "routes": {
                     "IM": {
                         "dose": {
-                            "min": 10,
-                            "max": 30,
+                            "min": 50,
+                            "max": 100,
                             "unit": "mg/kg"
                         }
                     }
@@ -293,15 +363,7 @@ const drugDatabase = {
             },
             "rabbit": {
                 "routes": {
-                    "IM": {
-                        "dose": {
-                            "min": 50,
-                            "max": 100,
-                            "unit": "mg/kg"
-                        },
-                        "frequency": "BID-TID"
-                    },
-                    "IV": {
+                    "IM, IV": {
                         "dose": {
                             "min": 50,
                             "max": 100,
@@ -313,20 +375,31 @@ const drugDatabase = {
             }
         }
     },
+    "albendazole": {
+        "name": "albendazole",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 20,
+                            "max": 20,
+                            "unit": "mg/kg"
+                        },
+                        "note": "治療E. cuniculi/持續3-14天"
+                    }
+                }
+            }
+        }
+    },
     "ceftiofur": {
         "name": "Ceftiofur",
         "aliases": [],
         "species": {
             "avian": {
                 "routes": {
-                    "IM": {
-                        "dose": {
-                            "min": 10,
-                            "max": 20,
-                            "unit": "mg/kg"
-                        }
-                    },
-                    "SC": {
+                    "IM, SC": {
                         "dose": {
                             "min": 10,
                             "max": 20,
@@ -360,14 +433,26 @@ const drugDatabase = {
         "species": {
             "avian": {
                 "routes": {
-                    "": {
+                    "PO": {
                         "dose": {
-                            "min": 20,
+                            "min": 10,
                             "max": 20,
                             "unit": "mg/kg"
                         },
                         "frequency": "BID",
                         "note": "提升至30–40 mg/kg可穿BBB"
+                    }
+                }
+            },
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 68,
+                            "max": 68,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID"
                     }
                 }
             }
@@ -384,7 +469,8 @@ const drugDatabase = {
                             "min": 75,
                             "max": 150,
                             "unit": "mg/kg"
-                        }
+                        },
+                        "note": "BSAVA: 35-100mg(PO, IM)"
                     }
                 }
             },
@@ -392,11 +478,11 @@ const drugDatabase = {
                 "routes": {
                     "SC": {
                         "dose": {
-                            "min": 20,
+                            "min": 15,
                             "max": 20,
                             "unit": "mg/kg"
                         },
-                        "frequency": "SID",
+                        "frequency": "BID-SID",
                         "note": "菌叢失衡/腸毒血症；可有效抑制呼吸道感染；可結合外用Cephalonium軟膏治療眼部感染"
                     }
                 }
@@ -426,6 +512,27 @@ const drugDatabase = {
         "name": "Ciprofloxacin",
         "aliases": [],
         "species": {
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 15,
+                            "max": 40,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID",
+                        "note": "80mg SID"
+                    },
+                    "IM, IV": {
+                        "dose": {
+                            "min": 15,
+                            "max": 40,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID"
+                    }
+                }
+            },
             "rabbit": {
                 "routes": {
                     "PO": {
@@ -441,20 +548,20 @@ const drugDatabase = {
             }
         }
     },
-    "cisapride": {
-        "name": "Cisapride",
+    "benazepril": {
+        "name": "Benazepril",
         "aliases": [],
         "species": {
             "rabbit": {
                 "routes": {
                     "PO": {
                         "dose": {
-                            "min": 0.5,
-                            "max": 0.5,
+                            "min": 0.05,
+                            "max": 0.25,
                             "unit": "mg/kg"
                         },
-                        "frequency": "BID",
-                        "note": "促蠕動"
+                        "frequency": "SID",
+                        "note": "治療CHF與CRF造成的高血壓"
                     }
                 }
             }
@@ -534,25 +641,6 @@ const drugDatabase = {
             }
         }
     },
-    "domperidone": {
-        "name": "Domperidone",
-        "aliases": [],
-        "species": {
-            "rabbit": {
-                "routes": {
-                    "PO": {
-                        "dose": {
-                            "min": 0.5,
-                            "max": 0.5,
-                            "unit": "mg/kg"
-                        },
-                        "frequency": "BID",
-                        "note": "作用與meto相似"
-                    }
-                }
-            }
-        }
-    },
     "doxycycline": {
         "name": "Doxycycline",
         "aliases": [],
@@ -561,20 +649,14 @@ const drugDatabase = {
                 "routes": {
                     "PO": {
                         "dose": {
-                            "min": 25,
-                            "max": 30,
-                            "unit": "mg/kg"
-                        }
+                            "min": 500,
+                            "max": 800,
+                            "unit": "mg/L"
+                        },
+                        "frequency": "飲水",
+                        "note": "飲水投予"
                     },
                     "IM": {
-                        "dose": {
-                            "min": 75,
-                            "max": 100,
-                            "unit": "mg/kg"
-                        },
-                        "frequency": "Q5D"
-                    },
-                    "SC": {
                         "dose": {
                             "min": 75,
                             "max": 100,
@@ -648,11 +730,13 @@ const drugDatabase = {
     },
     "erythromycin": {
         "name": "Erythromycin",
-        "aliases": [],
+        "aliases": [
+            "紅黴素"
+        ],
         "species": {
             "avian": {
                 "routes": {
-                    "": {
+                    "PO": {
                         "dose": {
                             "min": 10,
                             "max": 20,
@@ -692,6 +776,24 @@ const drugDatabase = {
             }
         }
     },
+    "chlorpheniramine": {
+        "name": "Chlorpheniramine",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 200,
+                            "max": 400,
+                            "unit": "ug/kg"
+                        },
+                        "frequency": "BID"
+                    }
+                }
+            }
+        }
+    },
     "fentanyl": {
         "name": "Fentanyl",
         "aliases": [],
@@ -710,6 +812,13 @@ const drugDatabase = {
                             "min": 0.15,
                             "max": 0.5,
                             "unit": "ug/kg/min"
+                        }
+                    },
+                    "SC": {
+                        "dose": {
+                            "min": 0.2,
+                            "max": 0.2,
+                            "unit": "mg/kg"
                         }
                     }
                 }
@@ -739,12 +848,13 @@ const drugDatabase = {
         "species": {
             "avian": {
                 "routes": {
-                    "": {
+                    "PO": {
                         "dose": {
-                            "min": null,
-                            "max": null,
-                            "unit": ""
-                        }
+                            "min": 10,
+                            "max": 25,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID-TID"
                     }
                 }
             }
@@ -763,7 +873,8 @@ const drugDatabase = {
                             "min": 2,
                             "max": 4,
                             "unit": "mg/kg"
-                        }
+                        },
+                        "note": "每10kg 0.5–1#"
                     }
                 }
             }
@@ -783,6 +894,18 @@ const drugDatabase = {
                         }
                     }
                 }
+            },
+            "rabbit": {
+                "routes": {
+                    "IV": {
+                        "dose": {
+                            "min": 1,
+                            "max": 2,
+                            "unit": "mg/kg"
+                        },
+                        "note": "抗心律不整；疼痛控制"
+                    }
+                }
             }
         }
     },
@@ -792,14 +915,7 @@ const drugDatabase = {
         "species": {
             "avian": {
                 "routes": {
-                    "IM": {
-                        "dose": {
-                            "min": 0.03,
-                            "max": 0.03,
-                            "unit": "mL/100g"
-                        }
-                    },
-                    "SC": {
+                    "IM, SC": {
                         "dose": {
                             "min": 0.03,
                             "max": 0.03,
@@ -811,29 +927,39 @@ const drugDatabase = {
             }
         }
     },
-    "marbofloxacin": {
-        "name": "Marbofloxacin",
+    "cisapride": {
+        "name": "Cisapride",
         "aliases": [],
         "species": {
             "rabbit": {
                 "routes": {
                     "PO": {
                         "dose": {
-                            "min": 2,
-                            "max": 5,
+                            "min": 0.5,
+                            "max": 0.5,
                             "unit": "mg/kg"
                         },
-                        "frequency": "SID",
-                        "note": "10mg/kg SID用於治療Pasteurellosis"
-                    },
-                    "SC": {
+                        "frequency": "BID",
+                        "note": "促蠕動"
+                    }
+                }
+            }
+        }
+    },
+    "meropenem": {
+        "name": "Meropenem",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "IM": {
                         "dose": {
-                            "min": 2,
-                            "max": 5,
+                            "min": 175,
+                            "max": 175,
                             "unit": "mg/kg"
                         },
                         "frequency": "SID",
-                        "note": "10mg/kg SID用於治療Pasteurellosis"
+                        "note": "鴿子劑量"
                     }
                 }
             }
@@ -842,7 +968,8 @@ const drugDatabase = {
     "maropitant": {
         "name": "Maropitant",
         "aliases": [
-            "Cerenia"
+            "Cerenia",
+            "cerenia"
         ],
         "species": {
             "avian": {
@@ -859,7 +986,20 @@ const drugDatabase = {
                             "min": 1,
                             "max": 3,
                             "unit": "mg/kg"
-                        }
+                        },
+                        "note": "50g=0.015ml"
+                    }
+                }
+            },
+            "rabbit": {
+                "routes": {
+                    "SC": {
+                        "dose": {
+                            "min": 1,
+                            "max": 1,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "SID"
                     }
                 }
             }
@@ -886,6 +1026,26 @@ const drugDatabase = {
                             "max": 0.5,
                             "unit": "mg/kg"
                         }
+                    }
+                }
+            },
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 0.3,
+                            "max": 0.6,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "SID-TID"
+                    },
+                    "SC": {
+                        "dose": {
+                            "min": 0.3,
+                            "max": 0.6,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "SID-TID"
                     }
                 }
             }
@@ -922,6 +1082,43 @@ const drugDatabase = {
                             "unit": "mg/kg"
                         },
                         "frequency": "BID"
+                    },
+                    "SC": {
+                        "dose": {
+                            "min": 0.5,
+                            "max": 0.5,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID"
+                    }
+                }
+            }
+        }
+    },
+    "dexamethasone": {
+        "name": "dexamethasone",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "IM, IV": {
+                        "dose": {
+                            "min": 1,
+                            "max": 3,
+                            "unit": "mg/kg"
+                        },
+                        "note": "消炎"
+                    }
+                }
+            },
+            "avian": {
+                "routes": {
+                    "IM, IV": {
+                        "dose": {
+                            "min": 1,
+                            "max": 2,
+                            "unit": "mg/kg"
+                        }
                     }
                 }
             }
@@ -935,11 +1132,32 @@ const drugDatabase = {
                 "routes": {
                     "PO": {
                         "dose": {
-                            "min": 25,
+                            "min": 10,
                             "max": 30,
                             "unit": "mg/kg"
                         },
+                        "frequency": "BIS-SID",
                         "note": "Febendazole在玄鳳有毒性"
+                    },
+                    "IM": {
+                        "dose": {
+                            "min": 10,
+                            "max": 10,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "SID",
+                        "note": "Febendazole在玄鳳有毒性"
+                    }
+                }
+            },
+            "rodent": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 25,
+                            "max": 25,
+                            "unit": "mg/kg"
+                        }
                     }
                 }
             },
@@ -948,22 +1166,29 @@ const drugDatabase = {
                     "PO": {
                         "dose": {
                             "min": 20,
-                            "max": 20,
+                            "max": 40,
                             "unit": "mg/kg"
                         },
                         "frequency": "BID",
                         "note": "腸毒血症治療首選"
                     }
                 }
-            },
-            "rodent": {
+            }
+        }
+    },
+    "diazepam": {
+        "name": "diazepam",
+        "aliases": [],
+        "species": {
+            "rabbit": {
                 "routes": {
-                    "": {
+                    "IM, IV": {
                         "dose": {
-                            "min": 25,
-                            "max": 25,
+                            "min": 1,
+                            "max": 2,
                             "unit": "mg/kg"
-                        }
+                        },
+                        "note": "鎮靜"
                     }
                 }
             }
@@ -1012,19 +1237,32 @@ const drugDatabase = {
             }
         }
     },
-    "mirtazapine": {
-        "name": "Mirtazapine",
+    "digoxin": {
+        "name": "digoxin",
         "aliases": [],
         "species": {
             "rabbit": {
                 "routes": {
-                    "": {
+                    "PO": {
                         "dose": {
-                            "min": 3,
-                            "max": 3,
+                            "min": 0.005,
+                            "max": 0.1,
                             "unit": "mg/kg"
                         },
-                        "note": "high dose"
+                        "frequency": "SID-Q2D",
+                        "note": "CHF"
+                    }
+                }
+            },
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 10,
+                            "max": 20,
+                            "unit": "ug/kg"
+                        },
+                        "frequency": "BID"
                     }
                 }
             }
@@ -1054,6 +1292,25 @@ const drugDatabase = {
                             "unit": "mg/kg"
                         },
                         "frequency": "BID"
+                    }
+                }
+            }
+        }
+    },
+    "diltiazem": {
+        "name": "diltiazem",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 0.5,
+                            "max": 1,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID",
+                        "note": "心臟適應症劑量"
                     }
                 }
             }
@@ -1095,20 +1352,41 @@ const drugDatabase = {
             }
         }
     },
-    "orbifloxacin": {
-        "name": "Orbifloxacin",
+    "diphenhydramine": {
+        "name": "diphenhydramine",
+        "aliases": [
+            "vena"
+        ],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 2,
+                            "max": 2,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID-TID",
+                        "note": "用於斜頸"
+                    }
+                }
+            }
+        }
+    },
+    "domperidone": {
+        "name": "Domperidone",
         "aliases": [],
         "species": {
             "rabbit": {
                 "routes": {
                     "PO": {
                         "dose": {
-                            "min": 5,
-                            "max": 20,
+                            "min": 0.5,
+                            "max": 0.5,
                             "unit": "mg/kg"
                         },
-                        "frequency": "SID",
-                        "note": "劑量未經實證"
+                        "frequency": "BID",
+                        "note": "作用與meto相似"
                     }
                 }
             }
@@ -1118,20 +1396,34 @@ const drugDatabase = {
         "name": "Oxytetracycline",
         "aliases": [],
         "species": {
-            "rabbit": {
+            "avian": {
                 "routes": {
-                    "SC": {
+                    "IM, SC": {
                         "dose": {
-                            "min": 30,
-                            "max": 30,
+                            "min": 50,
+                            "max": 100,
                             "unit": "mg/kg"
                         },
-                        "frequency": "Q3D"
+                        "frequency": "Q2-3D",
+                        "note": "50-75mg Macaw"
                     },
-                    "IM": {
+                    "PO": {
                         "dose": {
-                            "min": 10,
-                            "max": 10,
+                            "min": 650,
+                            "max": 2000,
+                            "unit": "mg/L"
+                        },
+                        "frequency": "5-14day",
+                        "note": "飲水投予"
+                    }
+                }
+            },
+            "rabbit": {
+                "routes": {
+                    "IM, SC": {
+                        "dose": {
+                            "min": 15,
+                            "max": 30,
                             "unit": "mg/kg"
                         },
                         "frequency": "Q3D"
@@ -1154,13 +1446,30 @@ const drugDatabase = {
         "species": {
             "avian": {
                 "routes": {
-                    "": {
+                    "PO": {
                         "dose": {
                             "min": 0.5,
                             "max": 1,
                             "unit": "mg/kg"
                         },
                         "note": "慢性退化性關節炎；0.6 mg/kg可能造成腸胃道潰瘍"
+                    }
+                }
+            }
+        }
+    },
+    "piperacillin": {
+        "name": "Piperacillin",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "IM, IV": {
+                        "dose": {
+                            "min": 100,
+                            "max": 200,
+                            "unit": ""
+                        }
                     }
                 }
             }
@@ -1176,12 +1485,12 @@ const drugDatabase = {
                 "routes": {
                     "PO": {
                         "dose": {
-                            "min": 45,
+                            "min": 10,
                             "max": 45,
                             "unit": "mg/kg"
                         },
-                        "frequency": "SID",
-                        "note": "高劑量"
+                        "frequency": "BID-SID",
+                        "note": "標準量10-20; 高劑量45"
                     }
                 }
             }
@@ -1238,6 +1547,18 @@ const drugDatabase = {
                         "frequency": "Q8h"
                     }
                 }
+            },
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 25,
+                            "max": 25,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID-TID"
+                    }
+                }
             }
         }
     },
@@ -1253,6 +1574,30 @@ const drugDatabase = {
                             "max": null,
                             "unit": "mg/kg"
                         }
+                    }
+                }
+            },
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 10,
+                            "max": 20,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID-TID"
+                    }
+                }
+            },
+            "rodent": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 10,
+                            "max": 20,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID-TID"
                     }
                 }
             }
@@ -1333,7 +1678,7 @@ const drugDatabase = {
         "species": {
             "rodent": {
                 "routes": {
-                    "": {
+                    "PO": {
                         "dose": {
                             "min": 15,
                             "max": 30,
@@ -1386,19 +1731,32 @@ const drugDatabase = {
             }
         }
     },
-    "trimethoprim_sulfamethoxazole": {
-        "name": "Trimethoprim/Sulfamethoxazole",
+    "enalapril": {
+        "name": "enalapril",
         "aliases": [],
         "species": {
             "rabbit": {
                 "routes": {
                     "PO": {
                         "dose": {
-                            "min": 40,
-                            "max": 40,
+                            "min": 0.25,
+                            "max": 0.5,
                             "unit": "mg/kg"
                         },
-                        "frequency": "BID"
+                        "frequency": "SID-Q2D",
+                        "note": "治療CHF與CRF造成的高血壓"
+                    }
+                }
+            },
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 0.5,
+                            "max": 2.5,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID-SID"
                     }
                 }
             }
@@ -1422,7 +1780,7 @@ const drugDatabase = {
             },
             "rabbit": {
                 "routes": {
-                    "SC": {
+                    "IM, SC": {
                         "dose": {
                             "min": 10,
                             "max": 10,
@@ -1430,15 +1788,24 @@ const drugDatabase = {
                         },
                         "frequency": "BID",
                         "note": "誘發腸毒血症的可能性不清楚，暫不推薦使用"
-                    },
-                    "IM": {
+                    }
+                }
+            }
+        }
+    },
+    "tiamulin": {
+        "name": "Tiamulin",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "PO": {
                         "dose": {
-                            "min": 10,
-                            "max": 10,
+                            "min": 25,
+                            "max": 50,
                             "unit": "mg/kg"
                         },
-                        "frequency": "BID",
-                        "note": "誘發腸毒血症的可能性不清楚，暫不推薦使用"
+                        "frequency": "SID"
                     }
                 }
             }
@@ -1452,12 +1819,1296 @@ const drugDatabase = {
         "species": {
             "rodent": {
                 "routes": {
-                    "": {
+                    "SC": {
                         "dose": {
                             "min": 30,
                             "max": 50,
                             "unit": "mg/kg"
                         }
+                    },
+                    "PO": {
+                        "dose": {
+                            "min": 30,
+                            "max": 50,
+                            "unit": "mg/kg"
+                        }
+                    }
+                }
+            },
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 50,
+                            "max": 100,
+                            "unit": "mg/kg"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "fenbendazole": {
+        "name": "fenbendazole",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 20,
+                            "max": 20,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "SID",
+                        "note": "治療E.cuniculi"
+                    }
+                }
+            },
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 20,
+                            "max": 100,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "once; SID(50mg) x3 days",
+                        "note": "腸道線蟲；梨邊；玄鳳有毒性"
+                    }
+                }
+            }
+        }
+    },
+    "fluconazole": {
+        "name": "fluconazole",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 25,
+                            "max": 40,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID"
+                    }
+                }
+            },
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 5,
+                            "max": 15,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID"
+                    }
+                }
+            }
+        }
+    },
+    "flunixin": {
+        "name": "flunixin",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 1.1,
+                            "max": 1.1,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "SID",
+                        "note": "低血壓謹慎使用"
+                    }
+                }
+            }
+        }
+    },
+    "furosemide": {
+        "name": "furosemide",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "IM, SC, IV": {
+                        "dose": {
+                            "min": 0.3,
+                            "max": 2,
+                            "unit": "mg/kg"
+                        }
+                    }
+                }
+            },
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 0.5,
+                            "max": 2,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID"
+                    },
+                    "IM": {
+                        "dose": {
+                            "min": 0.5,
+                            "max": 2,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID"
+                    }
+                }
+            }
+        }
+    },
+    "glycopyrrolate": {
+        "name": "glycopyrrolate",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "IM, SC, IV": {
+                        "dose": {
+                            "min": 0.01,
+                            "max": 0.1,
+                            "unit": "mg/kg"
+                        },
+                        "note": "麻醉前投藥"
+                    }
+                }
+            },
+            "avian": {
+                "routes": {
+                    "IM": {
+                        "dose": {
+                            "min": 0.01,
+                            "max": 0.01,
+                            "unit": "mg/kg"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "griseofulvin": {
+        "name": "griseofulvin",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 25,
+                            "max": 25,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "SID",
+                        "note": "錢癬；持續兩周"
+                    }
+                }
+            },
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 10,
+                            "max": 10,
+                            "unit": "mg/kg"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "imidacloprid": {
+        "name": "imidacloprid",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "外用": {
+                        "dose": {
+                            "min": 10,
+                            "max": 10,
+                            "unit": "mg/kg"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "itraconazole": {
+        "name": "Itraconazole",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 5,
+                            "max": 5,
+                            "unit": "mg/kg"
+                        }
+                    }
+                }
+            },
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 5,
+                            "max": 10,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID",
+                        "note": "灰鸚鵡敏感"
+                    }
+                }
+            }
+        }
+    },
+    "ivermectin": {
+        "name": "Ivermectin",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "外用": {
+                        "dose": {
+                            "min": 400,
+                            "max": 400,
+                            "unit": "ug/kg"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "ketoprofen": {
+        "name": "ketoprofen",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 1,
+                            "max": 3,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID"
+                    }
+                }
+            }
+        }
+    },
+    "levetiracetam": {
+        "name": "levetiracetam",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 20,
+                            "max": 20,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "TID",
+                        "note": "抗癲癇"
+                    }
+                }
+            }
+        }
+    },
+    "marbofloxacin": {
+        "name": "Marbofloxacin",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 2,
+                            "max": 5,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "SID",
+                        "note": "10mg/kg SID用於治療Pasteurellosis"
+                    },
+                    "SC": {
+                        "dose": {
+                            "min": 2,
+                            "max": 5,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "SID",
+                        "note": "10mg/kg SID用於治療Pasteurellosis"
+                    }
+                }
+            }
+        }
+    },
+    "meclizine": {
+        "name": "meclizine",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 2,
+                            "max": 12,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "SID-TID",
+                        "note": "用於斜頸"
+                    }
+                }
+            }
+        }
+    },
+    "mirtazapine": {
+        "name": "Mirtazapine",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 0.5,
+                            "max": 3,
+                            "unit": "mg/kg"
+                        },
+                        "note": "low dose-high dose"
+                    }
+                }
+            }
+        }
+    },
+    "moxidectin": {
+        "name": "moxidectin",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 0.2,
+                            "max": 0.2,
+                            "unit": "mg/kg"
+                        },
+                        "note": "驅蟲，10天後重複投藥"
+                    }
+                }
+            }
+        }
+    },
+    "nandrolone": {
+        "name": "nandrolone",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "SC, IM": {
+                        "dose": {
+                            "min": 2,
+                            "max": 2,
+                            "unit": "mg/kg"
+                        },
+                        "note": "食慾促進劑"
+                    }
+                }
+            }
+        }
+    },
+    "orbifloxacin": {
+        "name": "Orbifloxacin",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 5,
+                            "max": 20,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "SID",
+                        "note": "劑量未經實證"
+                    }
+                }
+            }
+        }
+    },
+    "oxytocin": {
+        "name": "oxytocin",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "SC, IM": {
+                        "dose": {
+                            "min": 1,
+                            "max": 2,
+                            "unit": "IU/kg"
+                        }
+                    }
+                }
+            },
+            "avian": {
+                "routes": {
+                    "IM": {
+                        "dose": {
+                            "min": 3,
+                            "max": 5,
+                            "unit": "mg/kg"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "paracetamol": {
+        "name": "paracetamol",
+        "aliases": [
+            "Acetamenophen"
+        ],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 200,
+                            "max": 500,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID",
+                        "note": "輕度止痛"
+                    }
+                }
+            }
+        }
+    },
+    "penicillamine": {
+        "name": "penicillamine",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 30,
+                            "max": 30,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID",
+                        "note": "螯合劑；銅鉛中毒"
+                    }
+                }
+            },
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 55,
+                            "max": 55,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID"
+                    }
+                }
+            }
+        }
+    },
+    "penicillin(procaine)": {
+        "name": "penicillin(procaine)",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "SC": {
+                        "dose": {
+                            "min": 40000,
+                            "max": 40000,
+                            "unit": "IU/kg"
+                        },
+                        "frequency": "SID",
+                        "note": "含1000 IU/mg 5日療程，治療Treponema paraluiscuniculi"
+                    }
+                }
+            }
+        }
+    },
+    "pentoxifylline": {
+        "name": "pentoxifylline",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 15,
+                            "max": 30,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID",
+                        "note": "文獻實驗數據"
+                    }
+                }
+            }
+        }
+    },
+    "phenobarbital": {
+        "name": "phenobarbital",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 1,
+                            "max": 2,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID"
+                    }
+                }
+            }
+        }
+    },
+    "phenylpropanolamine": {
+        "name": "phenylpropanolamine",
+        "aliases": [
+            "PPA"
+        ],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 5,
+                            "max": 10,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID"
+                    }
+                }
+            }
+        }
+    },
+    "pimobendan": {
+        "name": "pimobendan",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 0.25,
+                            "max": 0.3,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID"
+                    }
+                }
+            },
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 0.15,
+                            "max": 0.3,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID"
+                    }
+                }
+            }
+        }
+    },
+    "ponazuril": {
+        "name": "ponazuril",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 20,
+                            "max": 50,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "SID",
+                        "note": "殺球蟲藥(30天)"
+                    }
+                }
+            }
+        }
+    },
+    "praziquantel": {
+        "name": "praziquantel",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO, SC, IM": {
+                        "dose": {
+                            "min": 5,
+                            "max": 10,
+                            "unit": "mg/kg"
+                        },
+                        "note": "絛蟲感染"
+                    }
+                }
+            },
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 10,
+                            "max": 10,
+                            "unit": "mg/kg"
+                        },
+                        "note": "10天後再重複投予"
+                    }
+                }
+            }
+        }
+    },
+    "prednisolone": {
+        "name": "prednisolone",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO, SC, IM": {
+                        "dose": {
+                            "min": 0.5,
+                            "max": 2,
+                            "unit": "mg/kg"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "pyrantel pamoate": {
+        "name": "pyrantel pamoate",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO, SC": {
+                        "dose": {
+                            "min": 5,
+                            "max": 10,
+                            "unit": "mg/kg"
+                        },
+                        "note": "驅蟲藥；14天後重複投藥"
+                    }
+                }
+            }
+        }
+    },
+    "ranitidine": {
+        "name": "ranitidine",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 2,
+                            "max": 5,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID",
+                        "note": "胃潰瘍使用"
+                    },
+                    "IV": {
+                        "dose": {
+                            "min": 2,
+                            "max": 2,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "SID",
+                        "note": "胃潰瘍使用"
+                    }
+                }
+            }
+        }
+    },
+    "selamectin": {
+        "name": "selamectin",
+        "aliases": [
+            "寵愛"
+        ],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "外用": {
+                        "dose": {
+                            "min": 6,
+                            "max": 8,
+                            "unit": "mg/kg"
+                        },
+                        "note": "常用10-15mg; 寵愛100g/17-25uL"
+                    }
+                }
+            },
+            "avian": {
+                "routes": {
+                    "外用": {
+                        "dose": {
+                            "min": 20,
+                            "max": 25,
+                            "unit": "mg/kg"
+                        },
+                        "note": "寵愛每100g/ 33-42uL"
+                    }
+                }
+            }
+        }
+    },
+    "sulfadimethoxine": {
+        "name": "sulfadimethoxine",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 50,
+                            "max": null,
+                            "unit": "mg/kg"
+                        },
+                        "note": "球蟲抑制劑；單次50mg，就著每日25mg，最多20天"
+                    }
+                }
+            }
+        }
+    },
+    "terbinafine": {
+        "name": "terbinafine",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 10,
+                            "max": 30,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "SID"
+                    }
+                }
+            },
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 15,
+                            "max": 15,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID"
+                    }
+                }
+            }
+        }
+    },
+    "trimethoprim_sulfamethoxazole": {
+        "name": "Trimethoprim/Sulfamethoxazole",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 40,
+                            "max": 40,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID"
+                    }
+                }
+            }
+        }
+    },
+    "voriconazole": {
+        "name": "voriconazole",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 2.5,
+                            "max": 10,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID"
+                    }
+                }
+            },
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 10,
+                            "max": 18,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID x 30-60days"
+                    }
+                }
+            }
+        }
+    },
+    "fluid therapy": {
+        "name": "fluid therapy",
+        "aliases": [],
+        "species": {
+            "rabbit": {
+                "routes": {
+                    "SC": {
+                        "dose": {
+                            "min": null,
+                            "max": 10,
+                            "unit": "mL/kg"
+                        }
+                    },
+                    "IV": {
+                        "dose": {
+                            "min": 2,
+                            "max": 4,
+                            "unit": "mL/kg/h"
+                        },
+                        "note": "前兩個小時10-15mL/kg/h，後續調整2-4ml/kg/h (100ml/kg/24h)"
+                    }
+                }
+            }
+        }
+    },
+    "amphotericin b": {
+        "name": "Amphotericin B",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 100,
+                            "max": 300,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID-SID",
+                        "note": "腎毒性;  0.25–1 mg/mL NB"
+                    },
+                    "IV": {
+                        "dose": {
+                            "min": 1.5,
+                            "max": 1.5,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "Q8h x 3days",
+                        "note": "腎毒性"
+                    }
+                }
+            }
+        }
+    },
+    "ketoconazole": {
+        "name": "ketoconazole",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 30,
+                            "max": 30,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID",
+                        "note": "肝毒性; 嘔吐"
+                    }
+                }
+            }
+        }
+    },
+    "nystatin": {
+        "name": "nystatin",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 150000,
+                            "max": 300000,
+                            "unit": "IU/kg"
+                        },
+                        "frequency": "BID",
+                        "note": "胃腸道不吸收"
+                    }
+                }
+            }
+        }
+    },
+    "toltrazuril": {
+        "name": "toltrazuril",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 7,
+                            "max": 7,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "SID x 3days",
+                        "note": "球蟲症"
+                    }
+                }
+            }
+        }
+    },
+    "levamisole": {
+        "name": "levamisole",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 20,
+                            "max": 40,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "once",
+                        "note": "可能致嘔吐"
+                    }
+                }
+            }
+        }
+    },
+    "mebendazole": {
+        "name": "mebendazole",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 25,
+                            "max": 25,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID x 5 days"
+                    }
+                }
+            }
+        }
+    },
+    "piroxicam": {
+        "name": "piroxicam",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 0.5,
+                            "max": 0.5,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID"
+                    }
+                }
+            }
+        }
+    },
+    "adrenaline": {
+        "name": "adrenaline",
+        "aliases": [
+            "epinephrine"
+        ],
+        "species": {
+            "avian": {
+                "routes": {
+                    "IV": {
+                        "dose": {
+                            "min": 0.1,
+                            "max": 0.1,
+                            "unit": "g/kg"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "bismuth salts": {
+        "name": "bismuth salts",
+        "aliases": [
+            "bismuth"
+        ],
+        "species": {
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 1,
+                            "max": 2,
+                            "unit": "ml/kg"
+                        },
+                        "frequency": "BID"
+                    }
+                }
+            }
+        }
+    },
+    "cabergoline": {
+        "name": "cabergoline",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 10,
+                            "max": 20,
+                            "unit": "ug/kg"
+                        },
+                        "frequency": "SID x 7 days",
+                        "note": "慢性產蛋"
+                    }
+                }
+            }
+        }
+    },
+    "calcium gluconate": {
+        "name": "calcium gluconate",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "IM, SC": {
+                        "dose": {
+                            "min": 10,
+                            "max": 10,
+                            "unit": "mg/kg"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "colchicine": {
+        "name": "colchicine",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 0.04,
+                            "max": 0.04,
+                            "unit": "mg/kg"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "deslorelin": {
+        "name": "deslorelin",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "IM, SC": {
+                        "dose": {
+                            "min": 4.7,
+                            "max": 4.7,
+                            "unit": "mg"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "kaolin/pectin": {
+        "name": "kaolin",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 2,
+                            "max": 2,
+                            "unit": "ml/kg"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "lactulose": {
+        "name": "lactulose",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 0.2,
+                            "max": 1,
+                            "unit": "ml/kg"
+                        },
+                        "frequency": "Q8h"
+                    }
+                }
+            }
+        }
+    },
+    "leuprolide acetate": {
+        "name": "leuprolide acetate",
+        "aliases": [
+            "leuprolide"
+        ],
+        "species": {
+            "avian": {
+                "routes": {
+                    "IM": {
+                        "dose": {
+                            "min": 100,
+                            "max": 750,
+                            "unit": "ug/kg"
+                        },
+                        "frequency": "兩周一劑; 打三劑",
+                        "note": "卵巢囊腫、慢性產蛋"
+                    }
+                }
+            }
+        }
+    },
+    "pralidoxime": {
+        "name": "pralidoxime",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "IV": {
+                        "dose": {
+                            "min": 10,
+                            "max": 100,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "SID",
+                        "note": "有機磷中毒"
+                    }
+                }
+            }
+        }
+    },
+    "silymarin": {
+        "name": "silymarin",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 5,
+                            "max": 5,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "Q8h"
+                    }
+                }
+            }
+        }
+    },
+    "sodium calcium edetate": {
+        "name": "sodium calcium edetate",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "IM": {
+                        "dose": {
+                            "min": 35,
+                            "max": 40,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "BID",
+                        "note": "重金屬中毒，起始劑量可給200mg; 慢性鋅中毒100mg每周施打一次"
+                    }
+                }
+            }
+        }
+    },
+    "terbutaline": {
+        "name": "terbutaline",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "IM": {
+                        "dose": {
+                            "min": 0.01,
+                            "max": 0.01,
+                            "unit": "mg/kg"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "vitamin_b": {
+        "name": "Vitamin_B",
+        "aliases": [
+            "thiamine"
+        ],
+        "species": {
+            "avian": {
+                "routes": {
+                    "IM": {
+                        "dose": {
+                            "min": 3,
+                            "max": 3,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "weekly"
+                    }
+                }
+            }
+        }
+    },
+    "vitamin_k1": {
+        "name": "vitamin_K1",
+        "aliases": [],
+        "species": {
+            "avian": {
+                "routes": {
+                    "PO": {
+                        "dose": {
+                            "min": 0.2,
+                            "max": 2.5,
+                            "unit": "mg/kg"
+                        },
+                        "frequency": "Q6-24h",
+                        "note": "可IM"
                     }
                 }
             }
